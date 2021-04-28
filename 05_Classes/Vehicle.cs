@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _05_Classes
 {
-    public enum vehicleType { Car, Truck, Van, Motorcycle, Plane, Boat, Scooter}  //predefined set of options
+    public enum vehicleType { Car, Truck, Van, Motorcycle, Plane, Boat, Scooter}  //predefined set that cannot change
     public class Vehicle   // Any class can reference this class if it is Public
     {
         //1 Access Modifier
@@ -19,5 +19,35 @@ namespace _05_Classes
         public string Model { get; set; }
         public double Mileage { get; set; }
         public vehicleType TypeOfVehicle { get; set; }
+        public bool isRunning { get; private set; } // private set for only accessing at this level
+
+        public void TurnOn()
+        {
+            isRunning = true;
+            Console.WriteLine("You turned on the vehicle");
+        }
+
+        public void TurnOff()
+        {
+            isRunning = false;
+            Console.WriteLine("You turned off the vehicle");
+        }
+
+        // public int MyProperty { get; set; }         // prop then tab tab is a shortcut to this
+
+        public bool RightIndicator { get; set; }
+        public bool LeftIndicator { get; set; }
+
+        public void IndicateRight()
+        {
+            RightIndicator = true;
+            LeftIndicator = false;
+        }
+
+        public void IndicateLeft()
+        {
+            LeftIndicator = true;
+            RightIndicator = false;
+        }
     }
 }

@@ -25,6 +25,18 @@ namespace _05_Classes
         }
 
         [TestMethod]
+        public void VehicleMethodsTests()
+        {
+            Vehicle secondVehicle = new Vehicle();
+            secondVehicle.Make = "Tesla";
+            secondVehicle.Model = "Model S";
+            secondVehicle.TurnOn();
+            Console.WriteLine(secondVehicle.isRunning);
+            secondVehicle.TurnOff();
+            Console.WriteLine(secondVehicle.isRunning);
+        }
+
+        [TestMethod]
         public void GreeterMethodTests()
         {
             Greeter greeterInstance = new Greeter();
@@ -58,6 +70,8 @@ namespace _05_Classes
             int myAge = Calc1.CalculateAge(new DateTime(1987,11,17));
             Console.WriteLine(myAge);
         }
+
+        
 
     }
 }
