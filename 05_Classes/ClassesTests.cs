@@ -34,6 +34,17 @@ namespace _05_Classes
             Console.WriteLine(secondVehicle.isRunning);
             secondVehicle.TurnOff();
             Console.WriteLine(secondVehicle.isRunning);
+            
+            secondVehicle.IndicateRight();
+            Console.WriteLine(secondVehicle.RightIndicator); 
+            Console.WriteLine(secondVehicle.LeftIndicator);
+            secondVehicle.TurnOnHazards();
+            Console.WriteLine(secondVehicle.RightIndicator);
+            Console.WriteLine(secondVehicle.LeftIndicator);
+            secondVehicle.TurnOffHazards();
+            Console.WriteLine(secondVehicle.RightIndicator);
+            Console.WriteLine(secondVehicle.LeftIndicator);
+
         }
 
         [TestMethod]

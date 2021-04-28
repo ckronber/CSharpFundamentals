@@ -60,6 +60,13 @@ namespace _05_Classes
         {
             LeftIndicator = false;
             RightIndicator = false;
+            //LeftIndicator.TurnOn
         }
+
+        //Challenge
+        //make indicator it's own custom class
+        //properties including IsFlashing
+        //methods for TurnOn() and TurnOff()
+        // - methods would set value of IsFlashing
     }
 }
