@@ -49,5 +49,17 @@ namespace _05_Classes
             LeftIndicator = true;
             RightIndicator = false;
         }
+
+        public void TurnOnHazards()
+        {
+            LeftIndicator = true;
+            RightIndicator = true;
+        }
+
+        public void TurnOffHazards()
+        {
+            LeftIndicator = false;
+            RightIndicator = false;
+        }
     }
 }
