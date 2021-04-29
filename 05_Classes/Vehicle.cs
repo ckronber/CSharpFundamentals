@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _05_Classes
 {
-    public enum vehicleType { Car, Truck, Van, Motorcycle, Plane, Boat, Scooter}  //predefined set that cannot change
+    public enum vehicleType { Car, Truck, Van, Motorcycle, Plane, Boat, Scooter }  //predefined set that cannot change
     public class Vehicle   // Any class can reference this class if it is Public
     {
         //1 Access Modifier
@@ -20,6 +20,8 @@ namespace _05_Classes
         public double Mileage { get; set; }
         public vehicleType TypeOfVehicle { get; set; }
         public bool isRunning { get; private set; } // private set for only accessing at this level
+        public Indicator isIndicating { get; set; }
+       
 
         public void TurnOn()
         {
@@ -37,6 +39,8 @@ namespace _05_Classes
 
         public bool RightIndicator { get; set; }
         public bool LeftIndicator { get; set; }
+
+       
 
         public void IndicateRight()
         {
@@ -60,7 +64,6 @@ namespace _05_Classes
         {
             LeftIndicator = false;
             RightIndicator = false;
-            //LeftIndicator.TurnOn
         }
 
         //Challenge
@@ -68,5 +71,22 @@ namespace _05_Classes
         //properties including IsFlashing
         //methods for TurnOn() and TurnOff()
         // - methods would set value of IsFlashing
+    }
+
+    public class Indicator
+    {
+        public bool IsFlashing {  get; set; }
+
+        public bool TurnOn()
+        {
+            IsFlashing = true;
+            return IsFlashing;
+        }
+
+        public bool TurnOff()
+        {
+            IsFlashing = false;
+            return IsFlashing;
+        }
     }
 }

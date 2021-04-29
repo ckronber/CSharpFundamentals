@@ -19,6 +19,7 @@ namespace _00_ConditionsAndLoopsChallenges
 
             Dates.Add(DateTime.Now);
             Dates.Add(Birthday);
+            Dates.Add(DateTime.Today);
 
             Console.WriteLine(Dates[1]);
         }
