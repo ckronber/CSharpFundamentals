@@ -20,6 +20,14 @@ namespace _00_ConditionsAndLoopsChallenges
 
             iterator = 0;
 
+            foreach(char x in superWord)
+            {
+                Console.Write(x);
+                iterator++;
+            }
+
+            iterator = 0;
+
             Console.WriteLine();
 
             while (iterator < superWord.Length)
@@ -42,9 +50,6 @@ namespace _00_ConditionsAndLoopsChallenges
             }
 
             Console.WriteLine(iterator);
-
-
-
 
             //Switch Statement
             int feelValue = 3;

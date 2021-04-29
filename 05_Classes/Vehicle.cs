@@ -9,6 +9,19 @@ namespace _05_Classes
     public enum vehicleType { Car, Truck, Van, Motorcycle, Plane, Boat, Scooter }  //predefined set that cannot change
     public class Vehicle   // Any class can reference this class if it is Public
     {
+        public Vehicle() //empty constructor
+        {
+
+        }
+        public Vehicle(string make, string model, double mileage,vehicleType typeOfVehicle) //constructor
+        {
+            Make = make;
+            Model = model;
+            Mileage = mileage;
+            TypeOfVehicle = typeOfVehicle;
+            Console.WriteLine();
+        }
+
         //1 Access Modifier
         //2 Type - type the property holds
         //3 Name
@@ -75,7 +88,7 @@ namespace _05_Classes
 
     public class Indicator
     {
-        public bool IsFlashing {  get; set; }
+        public bool IsFlashing {  get; private set; }
 
         public bool TurnOn()
         {

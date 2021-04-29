@@ -48,6 +48,32 @@ namespace _05_Classes
         }
 
         [TestMethod]
+        public void IndicatorVehicleTests()
+        {
+            // Cannot be set outside of class, private set
+            Vehicle thirdVehicle = new Vehicle();
+            Indicator indicator = new Indicator();
+            Console.WriteLine(indicator.IsFlashing);
+            indicator.TurnOn();
+            Console.WriteLine(indicator.IsFlashing);
+        }
+
+        [TestMethod]
+        public void VehicleConstructorTest()
+        {
+            Vehicle car = new Vehicle();
+            car.Make = "Nissan";
+            car.Model = "Skyline";
+            car.Mileage = 50000;
+            car.TypeOfVehicle = vehicleType.Car;
+
+            Console.WriteLine(car.Make + " " + car.Model);
+
+            Vehicle car2 = new Vehicle("Ford", "Taurus", 12938, vehicleType.Car);
+            Console.WriteLine(car2.Make + " " + car2.Model);
+        }
+
+        [TestMethod]
         public void GreeterMethodTests()
         {
             Greeter greeterInstance = new Greeter();
@@ -82,7 +108,6 @@ namespace _05_Classes
             Console.WriteLine(myAge);
         }
 
-        
 
     }
 }
