@@ -71,6 +71,12 @@ namespace _05_Classes
 
             Vehicle car2 = new Vehicle("Ford", "Taurus", 12938, vehicleType.Car);
             Console.WriteLine(car2.Make + " " + car2.Model);
+
+            Vehicle rocket = new Vehicle("Enterprise", "Galaxy", 1000000, vehicleType.Plane);
+            Console.WriteLine($"I rode on spaceship, it was the {rocket.Make}");
+
+            rocket.Model = "Constellation";
+            Console.WriteLine($"That ship is a {rocket.Model}");
         }
 
         [TestMethod]
@@ -106,6 +112,16 @@ namespace _05_Classes
 
             int myAge = Calc1.CalculateAge(new DateTime(1987,11,17));
             Console.WriteLine(myAge);
+        }
+
+        [TestMethod]
+        public void Users()
+        {
+            User newUser = new User("Chris","Kronberg",new DateTime(1987,11,17));
+            Console.WriteLine(newUser.firstName);
+            Console.WriteLine(newUser.lastName);
+            Console.WriteLine(newUser.PrintFullName());
+            Console.WriteLine(newUser.returnAge());
         }
 
 

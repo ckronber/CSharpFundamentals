@@ -9,7 +9,7 @@ namespace _05_Classes
     public enum vehicleType { Car, Truck, Van, Motorcycle, Plane, Boat, Scooter }  //predefined set that cannot change
     public class Vehicle   // Any class can reference this class if it is Public
     {
-        public Vehicle() //empty constructor
+        public Vehicle() //empty constructor is needed
         {
 
         }
