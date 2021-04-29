@@ -13,28 +13,39 @@ namespace _05_Classes
         {
 
         }
-        public User(string firstName, string LastName, DateTime birthday)
+        public User(string FirstName, string LastName,DateTime Birthday,int ID = 2939378)
         {
-            this.firstName = firstName;
-            this.lastName = LastName;
-            this.birthday = birthday;
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.Birthday = Birthday;
+            this.ID = ID;
         }
 
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string ID { get; private set; }
-        public DateTime birthday{ get; set; }
+        public string FirstName { get; set; }
+
+        private string _lastName; //Backing field last name
+        public string LastName {
+            get {return _lastName;} 
+            set {
+                //value comes from LastName, sets private field _lastname as LastName
+                _lastName = value;} //value is built in and must be used here
+        } 
+        public int ID { get; private set; }
+        public DateTime Birthday{ get; set; }
+
+        //Using class as a type
+        public Vehicle Transport { get; set; }
 
         public string PrintFullName()
         {
-            return $"{firstName}  {lastName}";
+            return $"{FirstName}  {LastName}";
         }
 
         public int returnAge()
         {
             TimeSpan Age;
-            Age = DateTime.Today - birthday;
-            int AgeVal = Age.Days/365;
+            Age = DateTime.Today - Birthday;
+            int AgeVal = Convert.ToInt32(Math.Floor(Age.Days/365.25));
             return AgeVal;
         }
 

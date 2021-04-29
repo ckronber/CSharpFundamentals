@@ -118,12 +118,45 @@ namespace _05_Classes
         public void Users()
         {
             User newUser = new User("Chris","Kronberg",new DateTime(1987,11,17));
-            Console.WriteLine(newUser.firstName);
-            Console.WriteLine(newUser.lastName);
+            Console.WriteLine(newUser.FirstName);
+            Console.WriteLine(newUser.LastName);
             Console.WriteLine(newUser.PrintFullName());
             Console.WriteLine(newUser.returnAge());
+            Console.WriteLine(newUser.ID);
         }
 
+        [TestMethod]
+        public void PersonTest()
+        {
+            Person person = new Person("Chris","Kronberg",new DateTime(2000,01,31));
+            Console.WriteLine(person.FirstName);
+            Console.WriteLine(person.FullName);
+            Console.WriteLine(person.returnAge);
 
+
+            //Why blank constructors can be unhelpful, they can have missing data
+            Person jake = new Person();
+            jake.FirstName = "Jacob";
+            jake.Birthday = new DateTime(1991, 05, 04);
+            Console.WriteLine(jake.FullName);
+            Console.WriteLine(jake.Birthday);
+
+            //Single statement instance of new'ing up a person
+            Person andrew = new Person(){FirstName = "Andrew",LastName = "Torr",Birthday = new DateTime(1950, 12, 25)};
+        }
+
+        //Within the scope of the namespace, but outside of a method
+        // Field type variable
+        Person _person = new Person("Luke", "Skywalker", new DateTime(1987, 7, 4));
+
+        [TestMethod]
+        public void PersonTransportTest()           // using class variable in another class in this method
+        {
+            _person.Transport = new Vehicle("X-Wing","Starship",1000,vehicleType.Plane);
+            Console.WriteLine($"{_person.FullName} drives an {_person.Transport.Make}");
+
+            _person.Transport.Model = "T16 Skyhopper";
+            Console.WriteLine($"{_person.FullName} drives an {_person.Transport.Make} {_person.Transport.Model}");
+        }
     }
 }
