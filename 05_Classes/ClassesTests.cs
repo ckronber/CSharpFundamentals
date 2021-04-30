@@ -143,6 +143,11 @@ namespace _05_Classes
 
             //Single statement instance of new'ing up a person
             Person andrew = new Person(){FirstName = "Andrew",LastName = "Torr",Birthday = new DateTime(1950, 12, 25)};
+
+            //Asserting with a test that these two are equal
+            Assert.AreEqual("Jacob", jake.FirstName);
+            //Asserting with a test that these two are not equal
+            //Assert.AreEqual("Jac", jake.FirstName);
         }
 
         //Within the scope of the namespace, but outside of a method
@@ -157,6 +162,13 @@ namespace _05_Classes
 
             _person.Transport.Model = "T16 Skyhopper";
             Console.WriteLine($"{_person.FullName} drives an {_person.Transport.Make} {_person.Transport.Model}");
+            Console.WriteLine();
+
+            Person blank = new Person();
+           // Console.WriteLine($"Fullname: {blank.FullName}");
+           // Console.WriteLine($"Unset Class: {blank.Transport.Make}");
+            Console.WriteLine($"Unset struct: {blank.Birthday}");
+            Console.WriteLine($"Unset struct: {blank.returnAge}");
         }
     }
 }

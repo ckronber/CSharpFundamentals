@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace _00_ConditionsAndLoopsChallenges
 {
@@ -22,7 +23,7 @@ namespace _00_ConditionsAndLoopsChallenges
 
             foreach(char x in superWord)
             {
-                Console.Write(x);
+                Console.Write(x + " ");
                 iterator++;
             }
 
@@ -35,7 +36,7 @@ namespace _00_ConditionsAndLoopsChallenges
                 if (superWord[iterator] == 'i' || superWord[iterator] == 'l')
                     Console.Write(superWord[iterator] + " ");
                 else
-                    Console.WriteLine("Not an i ");
+                    Console.Write("Not an i ");
                 iterator++;
             }
 
@@ -51,6 +52,32 @@ namespace _00_ConditionsAndLoopsChallenges
 
             Console.WriteLine(iterator);
 
+            //Declare and initialize an array
+            string firstname = "Chris", lastName = "Kronberg";
+            int age = 33;
+            string[] collectionMovies = { "The Bourne Identity", "Bourne Supremacy", "Bourne Ultimatum", "Montey Python and the Holy Grail" };
+            DateTime Birthday = new DateTime(1987, 11, 17);
+
+
+            // Lists are similar to arrays
+            List<DateTime> Dates = new List<DateTime>();
+
+            Dates.Add(DateTime.Now);
+            Dates.Add(Birthday);
+            Dates.Add(DateTime.Today);
+
+
+
+            TimeSpan Age = DateTime.Now - Birthday;
+
+
+            Console.WriteLine(Dates[1]);
+
+
+            //Write out to the Console the values calculated by your age variable and the number 7
+            int myAge = 33;
+
+            double div = myAge / 7;
             //Switch Statement
             int feelValue = 3;
 

@@ -9,10 +9,13 @@ namespace _05_Classes
 {
     class User
     {
+        //blank constructor
         public User()
         {
 
         }
+
+        // Full Constructor (blueprint)
         public User(string FirstName, string LastName,DateTime Birthday,int ID = 2939378)
         {
             this.FirstName = FirstName;

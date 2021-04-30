@@ -74,8 +74,13 @@ namespace _01_TypesAndVariables
             Console.WriteLine(badgeDoor);
 
             //SortedLists
+            // you can make a predetermined sorted list, not sure why this is useful but might be
+
             //HashSet
+                // like a set but has some aditional methods
+
             //Stack
+                // like a queue but it is FILO instead of FIFO
         }
     }
 
