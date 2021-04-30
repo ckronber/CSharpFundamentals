@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace _06_Inheritance
 {
@@ -36,6 +37,36 @@ namespace _06_Inheritance
         public Customer(bool isPremium)
         {
             this.isPremium = isPremium;
+        }
+    }
+
+    public class Employee : Person
+    {
+        public int EmployerNumber { get; set; }
+        public DateTime HireDate { get; set; }
+        public int yearsWithCompany { get; set; } // challenge - remove the set and calculate years based on Hire date
+
+        public Employee(int EmployeeNumber) {
+            this.EmployerNumber = EmployeeNumber;
+        }
+        //referencing person class with base
+        public Employee(int employeeNumber,DateTime hireDate,string firstName,string lastName,string phoneNumber,string email) : base(firstName,lastName,phoneNumber,email)
+        {
+            this.EmployerNumber = employeeNumber;
+            this.HireDate = hireDate;
+        }
+    }
+
+    public class SalaryEmployee:Employee
+    {
+        public decimal Salary { get; set; }
+
+        public SalaryEmployee(int employeeNumber, decimal salary) : base(employeeNumber)
+        {
+            this.Salary = salary;
+        }
+        public SalaryEmployee(int Salary) : base(Salary) {
+            this.Salary = Salary;
         }
     }
 }
