@@ -23,7 +23,39 @@ namespace _07_StreamingContent_Repository
             bool wasAdded = (_contentDirectory.Count > startingCount) ? true : false;
             return wasAdded;
         }
-        
+
+        //Read
+        public List<StreamingContent> getContents()
+        {
+            return _contentDirectory;
+        }
+
+        public StreamingContent GetContentbyTitle(string Title)
+        {
+            foreach (StreamingContent content in _contentDirectory)
+            {
+                if (content.Title.ToLower() == Title.ToLower())
+                    return content;
+            }
+            return null;
+        }
+
+        //Update
+        public bool UpdateExistingContent(string originalTitle,StreamingContent newContentValues)
+        {
+            StreamingContent oldContent = GetContentbyTitle(originalTitle);
+
+            if (oldContent != null)
+            {
+                oldContent.Title = newContentValues.Title;
+                oldContent.Description = newContentValues.Description;
+                oldContent.StarRating = newContentValues.StarRating;
+                oldContent.MaturityRating = newContentValues.MaturityRating;
+                oldContent.typeOfGenre = newContentValues.typeOfGenre;
+                return true;
+            }
+            return false;
+        }
 
     }
 }
