@@ -44,8 +44,6 @@ namespace _06_Inheritance
 
             sal.WhoAmI();
             joe.WhoAmI();
-
-
         }
     }
 }
