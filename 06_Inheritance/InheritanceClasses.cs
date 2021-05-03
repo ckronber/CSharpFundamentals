@@ -7,7 +7,8 @@ using System.Windows;
 
 namespace _06_Inheritance
 {
-    public class Person
+    //abstract makes it so a class can only be inherited from
+    public abstract class Person
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -28,6 +29,18 @@ namespace _06_Inheritance
             this.PhoneNumber = phoneNumber;
             this.Email = email;
         }
+
+        //virtural overrides the method in a child class
+        public virtual void WhoAmI()
+        {
+            Console.WriteLine("I am a person");
+        }
+
+        //abstracts do not declare a body
+        public abstract void WhoisI();
+        //{
+            //Console.WriteLine("I am a person");
+        //}
     }
 
     public class Customer:Person
@@ -38,22 +51,50 @@ namespace _06_Inheritance
         {
             this.isPremium = isPremium;
         }
+
+        // overrides a virtual method in the parent class
+        public override void WhoAmI()
+        {
+            base.WhoAmI();
+          //  Console.WriteLine("I am a customer");
+        }
+
+        public override void WhoisI()
+        {
+            Console.WriteLine("I am a customer");
+        }
     }
 
     public class Employee : Person
     {
         public int EmployerNumber { get; set; }
         public DateTime HireDate { get; set; }
-        public int yearsWithCompany { get; set; } // challenge - remove the set and calculate years based on Hire date
+        public int yearsWithCompany {
+            get
+            {
+                double totalTime = (DateTime.Now - HireDate).TotalDays / 365.25;
+                return Convert.ToInt32(Math.Floor(totalTime));
+            }
+        } // challenge - remove the set and calculate years based on Hire date
 
         public Employee(int EmployeeNumber) {
             this.EmployerNumber = EmployeeNumber;
         }
         //referencing person class with base
-        public Employee(int employeeNumber,DateTime hireDate,string firstName,string lastName,string phoneNumber,string email) : base(firstName,lastName,phoneNumber,email)
+        public Employee(int employeeNumber, DateTime hireDate, string firstName, string lastName, string phoneNumber, string email) : base(firstName, lastName, phoneNumber, email)
         {
             this.EmployerNumber = employeeNumber;
             this.HireDate = hireDate;
+        }
+
+        public override void WhoAmI()
+        {
+            base.WhoAmI();
+        }
+
+        public override void WhoisI()
+        {
+            Console.WriteLine("I am an employee");
         }
     }
 
