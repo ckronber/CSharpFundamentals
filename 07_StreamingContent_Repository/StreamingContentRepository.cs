@@ -57,5 +57,17 @@ namespace _07_StreamingContent_Repository
             return false;
         }
 
+        //Delete
+        public bool DeletExistingContent(string titleToDelete)
+        {
+            StreamingContent contentToDelete = GetContentbyTitle(titleToDelete);
+            if (contentToDelete == null)
+                return false;
+            else
+            {
+                _contentDirectory.Remove(contentToDelete);
+                return true;
+            }
+        }
     }
 }

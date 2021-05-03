@@ -77,5 +77,15 @@ namespace _07_StreamingContent_Tests
             //Assert
             Assert.AreEqual(_content.Title, "Back to the Future 2");
         }
+
+        [TestMethod]
+        public void DeleteExistingContent_ShouldReturnCorrectBoolean()
+        {
+            //Act
+            bool wasDeleted = _repo.DeletExistingContent("Back to the Future");
+
+            //Assert
+            Assert.IsTrue(wasDeleted);
+        }
     }
 }
