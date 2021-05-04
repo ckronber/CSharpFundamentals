@@ -14,7 +14,7 @@ namespace _07_StreamingContent_Repository
         //CRUD medthods below - Create Read Update Delete
 
         //Create
-        public bool AddContentToDirecotry(StreamingContent newContent)
+        public bool AddContentToDirectory(StreamingContent newContent)
         {
             int startingCount = _contentDirectory.Count;
 

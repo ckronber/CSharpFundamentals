@@ -38,7 +38,7 @@ namespace _07_StreamingContent_Console
                 {
                     case "1":
                     case "one":
-                    case "banana":
+                    case "banana":  // cheat to create content
                         //Create New Content
                         CreateNewContent();
                         break;
@@ -50,14 +50,17 @@ namespace _07_StreamingContent_Console
                     case "3":
                     case "three":
                         //View Content By Title
+                        DisplayContentByTitle();
                         break;
                     case "4":
                     case "four":
                         //Update Existing Content
+                        UpdateContent();
                         break;
                     case "5":
                     case "five":
                         //Delete Existing Content
+                        deleteExistingContent();
                         break;
                     case "6":
                     case "six":
@@ -124,7 +127,7 @@ namespace _07_StreamingContent_Console
             int ratingAsInt = Convert.ToInt32(Console.ReadLine());
             newContent.MaturityRating = (MaturityRating)ratingAsInt; // casting int to GenreType
 
-            bool wasAddedCorrectly = _repo.AddContentToDirecotry(newContent);//adding it to the repository so we can access it later
+            bool wasAddedCorrectly = _repo.AddContentToDirectory(newContent);//adding it to the repository so we can access it later
             
             if(wasAddedCorrectly)
                 Console.WriteLine(newContent.Title + " was added correctly to the Repository.");
@@ -159,12 +162,97 @@ namespace _07_StreamingContent_Console
             string titleName = Console.ReadLine();
             displayContent = _repo.GetContentbyTitle(titleName);
 
-            Console.WriteLine($"Title: {displayContent.Title}\n" +
-                $"Description: {displayContent.Description}\n" +
-                $"Star Rating: {displayContent.StarRating}\n" +
-                $"Genre: {displayContent.typeOfGenre}\n" +
-                $"Maturity Rating: {displayContent.MaturityRating}\n" +
-                $"IsFamilyFriendly: {displayContent.isFamilyFriendly}\n");
+            Console.Clear(); //clears the screen
+
+            if (displayContent != null)
+            {
+                Console.WriteLine($"Title: {displayContent.Title}\n" +
+                    $"Description: {displayContent.Description}\n" +
+                    $"Star Rating: {displayContent.StarRating}\n" +
+                    $"Genre: {displayContent.typeOfGenre}\n" +
+                    $"Maturity Rating: {displayContent.MaturityRating}\n" +
+                    $"IsFamilyFriendly: {displayContent.isFamilyFriendly}\n");
+            }
+            else
+            {
+                Console.WriteLine("Title was not found in repository");
+            }
+        }
+    
+        private void UpdateContent()
+        {
+            DisplayAllContent();
+
+            Console.WriteLine("Enter the title to update content");
+            string oldTitle = Console.ReadLine();
+
+            StreamingContent newContent = new StreamingContent();
+
+            //Title
+            Console.WriteLine("What is the new title for this Content?");
+            newContent.Title = Console.ReadLine();
+
+            //Description
+            Console.WriteLine("Enter the new Description:");
+            newContent.Description = Console.ReadLine();
+
+            //Star Rating
+            Console.WriteLine("Enter new Star Rating for content (0.0 - 5.0): ");
+            //string starRatingAsString = Console.ReadLine();
+            //double starRatingAsDouble = Convert.ToDouble(starRatingAsString);
+            //newContent.StarRating = starRatingAsDouble;
+            newContent.StarRating = Convert.ToDouble(Console.ReadLine()); //same as above 3 lines
+
+            //GenreType
+            Console.WriteLine("Enter the new Genre Number for this Content \n" +
+                "1. Horror \n" +
+                "2. RomCom\n" +
+                "3. SciFi\n" +
+                "4. Documentary\n" +
+                "5. Romance\n" +
+                "6. Drama\n" +
+                "7. Action\n" +
+                "8. Comedy\n" +
+                "9. Anime\n");
+
+            int genreAsInt = Convert.ToInt32(Console.ReadLine());
+            newContent.typeOfGenre = (GenreType)genreAsInt; // casting int to GenreType
+
+            //MaturityRating
+            Console.WriteLine("Enter the new Maturity rating for this Content\n" +
+                "1. G \n" +
+                "2. PG\n" +
+                "3. PG-13\n" +
+                "4. TV-G\n" +
+                "5. TV-PG\n" +
+                "6. TV-14\n" +
+                "7. TV-R\n" +
+                "8. TV-MA\n");
+
+            int ratingAsInt = Convert.ToInt32(Console.ReadLine());
+            newContent.MaturityRating = (MaturityRating)ratingAsInt;
+
+            bool isUpdated = _repo.UpdateExistingContent(oldTitle, newContent);
+            
+            if(isUpdated)
+                Console.WriteLine($"{oldTitle} has been updated to {newContent.Title}");
+            else
+                Console.WriteLine("Failed to update.");
+        }
+    
+        private void deleteExistingContent()
+        {
+            Console.Clear();
+            DisplayAllContent();
+
+            Console.WriteLine("Enter the Title You would like to delete: ");
+            string titleToDelete = Console.ReadLine();
+            bool wasDeleted = _repo.DeletExistingContent(titleToDelete);
+
+           if(wasDeleted)
+                Console.WriteLine($"The {titleToDelete} was deleted.");
+           else
+                Console.WriteLine("Contents could not be deleted");
         }
     }
 }
