@@ -50,5 +50,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\07_StreamingContent_Repository\07_StreamingContent_Repository.csproj">
+      <Project>{C1BB40D5-75B4-4AB5-9CE0-8D691A4287C2}</Project>
+      <Name>07_StreamingContent_Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

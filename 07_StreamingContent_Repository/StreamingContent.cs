@@ -8,7 +8,7 @@ namespace _07_StreamingContent_Repository
 {
     public enum GenreType
     {
-        Horror, RomCom, SciFi, Documentary, Romance, Drama, Action,Comedy,Anime
+        Horror=1, RomCom, SciFi, Documentary, Romance, Drama, Action,Comedy,Anime
     }
     public enum MaturityRating
     {
