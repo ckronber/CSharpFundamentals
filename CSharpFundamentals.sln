@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_StreamingContent_Console
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_StreamingContent_Repository", "07_StreamingContent_Repository\07_StreamingContent_Repository.csproj", "{C1BB40D5-75B4-4AB5-9CE0-8D691A4287C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "00_MorningChallenges_Week2", "00_MorningChallenges_Week2\00_MorningChallenges_Week2.csproj", "{7E51CCC2-17F7-4DD2-AD94-77CF2B3C53EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{C1BB40D5-75B4-4AB5-9CE0-8D691A4287C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1BB40D5-75B4-4AB5-9CE0-8D691A4287C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1BB40D5-75B4-4AB5-9CE0-8D691A4287C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E51CCC2-17F7-4DD2-AD94-77CF2B3C53EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E51CCC2-17F7-4DD2-AD94-77CF2B3C53EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E51CCC2-17F7-4DD2-AD94-77CF2B3C53EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E51CCC2-17F7-4DD2-AD94-77CF2B3C53EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

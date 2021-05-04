@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace _07_StreamingContent_Console
 {
-    class Program
+    class ProgramUI
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello");
-            Console.ReadLine();
-        }
+
     }
 }
