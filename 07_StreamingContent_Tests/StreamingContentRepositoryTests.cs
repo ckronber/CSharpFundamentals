@@ -17,7 +17,7 @@ namespace _07_StreamingContent_Tests
             StreamingContentRepository repository = new StreamingContentRepository();
 
             //Act
-            bool addResult = repository.AddContentToDirecotry(content);
+            bool addResult = repository.AddContentToDirectory(content);
 
             //Assert
             Assert.IsTrue(addResult);
@@ -29,7 +29,7 @@ namespace _07_StreamingContent_Tests
             //Arrange
             StreamingContent content = new StreamingContent();
             StreamingContentRepository repo = new StreamingContentRepository();
-            repo.AddContentToDirecotry(content);
+            repo.AddContentToDirectory(content);
 
             //Act
             List<StreamingContent> directory = repo.getContents();
@@ -47,7 +47,7 @@ namespace _07_StreamingContent_Tests
         {
             _repo = new StreamingContentRepository();
             _content = new StreamingContent("Back to the Future","A high school student named Marty gets accidentally sent back in time 30 years",4.4,GenreType.SciFi,MaturityRating.PG);
-            _repo.AddContentToDirecotry(_content);
+            _repo.AddContentToDirectory(_content);
         }
 
         [TestMethod]

@@ -15,6 +15,7 @@ namespace _07_StreamingContent_Console
         public void Run()
         {
             // called by program to start application
+            SeedContentList(); // if you want to interface with a different menu start here
             Menu();
         }
 
@@ -250,9 +251,26 @@ namespace _07_StreamingContent_Console
             bool wasDeleted = _repo.DeletExistingContent(titleToDelete);
 
            if(wasDeleted)
-                Console.WriteLine($"The {titleToDelete} was deleted.");
+                Console.WriteLine($"{titleToDelete} was deleted.");
            else
                 Console.WriteLine("Contents could not be deleted");
+        }
+
+        private void SeedContentList()
+        {
+            StreamingContent future = new StreamingContent("Back to the Future", "Marty gets accidentally tranported back in time", 4.5, GenreType.SciFi, MaturityRating.PG);
+            StreamingContent starWars = new StreamingContent("Star Wars", "Jar Jar Saves the Day", 3.1, GenreType.SciFi, MaturityRating.PG_13);
+            StreamingContent rubber = new StreamingContent("Rubber", "A car tire comes to life and goes on a killing spree", 1.2, GenreType.Horror, MaturityRating.R);
+
+            //adds the these to the directory
+            _repo.AddContentToDirectory(future);
+            _repo.AddContentToDirectory(starWars);
+            _repo.AddContentToDirectory(rubber);
+
+            //add a list
+            //List<StreamingContent> seedContent = new List<StreamingContent>();
+            //seedContent.Add(future)
+
         }
     }
 }
