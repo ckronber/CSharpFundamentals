@@ -51,6 +51,33 @@ namespace _07_StreamingContent_Tests
         }
 
         [TestMethod]
+        public void CheckMovieRunTime()
+        {
+            Movie joe = new Movie("Joe Dirt","Joe thinks women are the devil",3.2,MaturityRating.PG_13,GenreType.Romance,112);
+            List<StreamingContent> miniRepo = new List<StreamingContent>();
+            miniRepo.Add(joe);
+
+            //List<Movie> movies = new List<Movie>();
+
+            //Filtering our repo by Movies in our foreach
+            foreach(Movie content in miniRepo)
+            {
+                Console.WriteLine(content.RunTime);
+            }
+
+            //searchign for StreamingContent makes run time unavailible wihtout casting
+            foreach(StreamingContent content in miniRepo)
+            {
+                //finding  movie types
+                if(content is Movie)
+                {
+                    //setting content as movie to access Moveie exclusive Property
+                    Console.WriteLine((content as Movie).RunTime);
+                }
+            }
+        }
+
+        [TestMethod]
         public void GetByTitle_ShouldReturnCorrectContent()
         {
             //AAA
