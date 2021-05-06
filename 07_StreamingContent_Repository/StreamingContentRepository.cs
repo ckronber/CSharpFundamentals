@@ -55,7 +55,7 @@ namespace _07_StreamingContent_Repository
             Show showTitle = GetShowByTitle(Show);
 
             showTitle.Episode.Add(newContent);
-            showTitle.EpisodeCount += 1;
+            showTitle.EpisodeCount++;
 
             bool wasAdded = (_contentDirectory.Count > startingCount) ? true : false;
 
@@ -291,6 +291,7 @@ namespace _07_StreamingContent_Repository
                 if(episode.Title == EpisodeTitle)
                 {
                     EpToDelete.Episode.Remove(episode);
+                    EpToDelete.EpisodeCount--;
                     return true;
                 }
             }
