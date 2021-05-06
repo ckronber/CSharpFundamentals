@@ -36,8 +36,31 @@ namespace _07_StreamingContent_Repository
         }
 
         //Show
-        
+        public bool AddContentToDirectory(Show newContent)
+        {
+            int startingCount = _contentDirectory.Count;
+
+            _contentDirectory.Add(newContent);
+
+            bool wasAdded = (_contentDirectory.Count > startingCount) ? true : false;
+
+            return wasAdded;
+        }
+
         //Episode
+        public bool AddContentToDirectory(Episode newContent,string Show)
+        {
+            int startingCount = _contentDirectory.Count;
+
+            Show showTitle = GetShowByTitle(Show);
+
+            showTitle.Episode.Add(newContent);
+            showTitle.EpisodeCount += 1;
+
+            bool wasAdded = (_contentDirectory.Count > startingCount) ? true : false;
+
+            return wasAdded;
+        }
 
         //Read All
         //Content Read All
@@ -83,6 +106,19 @@ namespace _07_StreamingContent_Repository
         }
 
         //Episode Read All
+        public List<Episode> GetEpisodes(string Title)
+        {
+            //Setup the list
+            Show SelectedShow = GetShowByTitle(Title);
+
+            //setup get show by title first
+            foreach(Episode episode in SelectedShow.Episode) // We have to look through the list
+            {
+                SelectedShow.Episode.Add(episode);
+            }
+
+            return SelectedShow.Episode;
+        }
        
 
         //Get by Title
@@ -99,7 +135,7 @@ namespace _07_StreamingContent_Repository
         }
 
         //Movie
-        public StreamingContent GetMoviebyTitle(string Title)
+        public Movie GetMoviebyTitle(string Title)
         {
             foreach (StreamingContent movie in _contentDirectory)
             {
@@ -144,6 +180,63 @@ namespace _07_StreamingContent_Repository
             return false;
         }
 
+        //Update Movie
+        public bool UpdateExistingContent(string MovieTitle,Movie newContent)
+        {
+            Movie oldContent = GetMoviebyTitle(MovieTitle);
+            
+           if((oldContent != null) && (oldContent is Movie))
+            {
+                oldContent.Title = newContent.Title;
+                oldContent.Description = newContent.Description;
+                oldContent.StarRating = newContent.StarRating;
+                oldContent.typeOfGenre = newContent.typeOfGenre;
+                oldContent.MaturityRating = newContent.MaturityRating;
+                oldContent.RunTime = newContent.RunTime;
+                return true;
+            }
+            return false;
+        }
+
+        //Update Show
+        public bool UpdateExistingContent(string showTitle, Show newContent)
+        {
+            Show oldContent = GetShowByTitle(showTitle);
+
+            if(oldContent!= null)
+            {
+                oldContent.Title = newContent.Title;
+                oldContent.Description = newContent.Description;
+                oldContent.StarRating = newContent.StarRating;
+                oldContent.typeOfGenre = newContent.typeOfGenre;
+                oldContent.MaturityRating = newContent.MaturityRating;
+                oldContent.Episode = newContent.Episode;
+                oldContent.SeasonCount = newContent.SeasonCount;
+                oldContent.EpisodeCount = newContent.SeasonCount;
+                oldContent.AverageRunTime = newContent.AverageRunTime;
+                return true;
+            }
+            return false;
+        }
+
+        //Update Episode
+        public bool updateExistingContent(string showUpdate,string epidoseUpdate)
+        {
+            Show showToUpdate = GetShowByTitle(showUpdate);
+            Episode episodes = new Episode();
+
+            if(showToUpdate.Episode != null)
+            {
+                foreach (episodes in showToUpdate.Episode)
+                {
+
+                }
+
+                return true;
+            }
+            return false;
+        }
+
         //Delete
         public bool DeletExistingContent(string titleToDelete)
         {
@@ -156,5 +249,8 @@ namespace _07_StreamingContent_Repository
                 return true;
             }
         }
+        //Delete Move
+        //Delete Show
+        //Delete Episode
     }
 }

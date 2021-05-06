@@ -22,6 +22,18 @@ namespace _00_ConditionsAndLoopsChallenges
             Dates.Add(DateTime.Today);
 
             Console.WriteLine(Dates[1]);
+
+            displayBirthday(new DateTime(1987, 11, 17));
+
+            
+        }
+        [TestMethod]
+      
+        public void displayBirthday(DateTime Bday)
+        {
+            TimeSpan age = DateTime.Now - Bday;
+            int Yearage = Convert.ToInt32(Math.Floor(age.Days/365.25));
+            System.Console.WriteLine($"You are {Yearage} years old");
         }
     }
 }
