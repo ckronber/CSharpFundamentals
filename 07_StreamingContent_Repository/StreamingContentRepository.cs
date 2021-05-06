@@ -36,11 +36,12 @@ namespace _07_StreamingContent_Repository
         }
 
         //Show
-        public bool AddContentToDirectory(Show newContent)
+        public bool AddContentToDirectory(Show newContent,int seasonCount)
         {
             int startingCount = _contentDirectory.Count;
 
             _contentDirectory.Add(newContent);
+
 
             bool wasAdded = (_contentDirectory.Count > startingCount) ? true : false;
 
@@ -48,12 +49,11 @@ namespace _07_StreamingContent_Repository
         }
 
         //Episode
-        public bool AddContentToDirectory(Episode newContent,string Show)
+        public bool AddContentToDirectory(Episode newContent,string Show,int SeasonNum)
         {
             int startingCount = _contentDirectory.Count;
 
             Show showTitle = GetShowByTitle(Show);
-
             showTitle.Episode.Add(newContent);
             showTitle.EpisodeCount++;
 

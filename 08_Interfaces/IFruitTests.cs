@@ -88,7 +88,7 @@ namespace _08_Interfaces
                     {
                         Console.WriteLine("It's a peeled orange");
                         //Regain orange exclusive properties
-                        orange.Squeeze();
+                        Console.WriteLine(orange.Squeeze());
                     }
                     else
                         Console.WriteLine("Its an orange");

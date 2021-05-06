@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{375B0FE7-E3CD-45AC-B17F-78408721EA24}</ProjectGuid>
+    <ProjectGuid>{4EE5CF9F-D58A-41C6-8783-8CDC320C147F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_08_Interfaces</RootNamespace>
-    <AssemblyName>08_Interfaces</AssemblyName>
+    <RootNamespace>_404_RandomTesting</RootNamespace>
+    <AssemblyName>404_RandomTesting</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -49,14 +49,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Currency\Currency.cs" />
-    <Compile Include="Currency\ICurrency.cs" />
-    <Compile Include="Currency\Transaction.cs" />
-    <Compile Include="Fruit\Fruits.cs" />
-    <Compile Include="Fruit\IFruit.cs" />
-    <Compile Include="IFruitTests.cs" />
+    <Compile Include="RandomTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CurrencyTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

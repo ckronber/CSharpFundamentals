@@ -11,7 +11,7 @@ namespace _08_Interfaces.Fruit
     public interface IFruit
     {
         string Name { get; }
-        bool IsPeeled { get; }
+        bool IsPeeled { get;}
         //Methods in interfaces
         //Can only set the return type, name and parameters
         string Peel();

@@ -79,7 +79,7 @@ namespace _08_Interfaces.Fruit
 
         public string Peel()
         {
-            return "Who peels grapes";
+            return "Who peels grapes?";
         }
     }
 
