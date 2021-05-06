@@ -64,53 +64,47 @@ namespace _08_Interfaces.Fruit
         {
             return "You squeeze the orange, and juice comes out";
         }
-
-        public class grape : IFruit
+    }
+    public class Grape : IFruit
+    {
+        public string Name
         {
-            public string Name
+            get
             {
-                get
-                {
-                    return "Grape";
-                }
-            }
-
-            public bool IsPeeled { get; } = false; //hard set to get false becasue noone is going to peel a grape
-
-            public string Peel()
-            {
-                return "Who peels grapes";
+                return "Grape";
             }
         }
 
-        //make an apple class inheriting  from Ifruit
+        public bool IsPeeled { get; } = false; //hard set to get false becasue noone is going to peel a grape
 
-        public class apple:IFruit
+        public string Peel()
         {
-            public string Name
-            {
-                get
-                {
-                    return "apple";
-                }
-            }
-            public bool IsPeeled { get; private set; }
+            return "Who peels grapes";
+        }
+    }
 
-            public string Peel()
-            {
-                if(IsPeeled == true)
-                {
-                    return "Already Peeled";
-                }
-                IsPeeled = true;
-                return "You Peeled the Apple.";
-            }
+    //make an apple class inheriting  from Ifruit
 
-            public string ThrowApple()
+    public class Apple : IFruit
+    {
+        //lambda or 'phat arrow'
+        public string Name => "Apple";
+
+        public bool IsPeeled { get; private set; }
+
+        public string Peel()
+        {
+            if (IsPeeled == true)
             {
-                return "You threw the apple and it smashed into a bunch  of small pieces";
+                return "Ready for Pies";
             }
+            IsPeeled = true;
+            return "You Peeled the Apple.";
         }
 
+        public string ThrowApple()
+        {
+            return "You threw the apple and it smashed into a bunch  of small pieces";
+        }
     }
 }

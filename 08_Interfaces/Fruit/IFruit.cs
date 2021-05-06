@@ -14,7 +14,6 @@ namespace _08_Interfaces.Fruit
         bool IsPeeled { get; }
         //Methods in interfaces
         //Can only set the return type, name and parameters
-
         string Peel();
     }
 }
