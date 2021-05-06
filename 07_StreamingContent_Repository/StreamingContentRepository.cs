@@ -223,16 +223,21 @@ namespace _07_StreamingContent_Repository
         public bool updateExistingContent(string showUpdate,string epidoseUpdate)
         {
             Show showToUpdate = GetShowByTitle(showUpdate);
-            Episode episodes = new Episode();
+            Episode newEpidose = new Episode();
 
             if(showToUpdate.Episode != null)
             {
-                foreach (episodes in showToUpdate.Episode)
+                foreach (Episode oldEpisode in showToUpdate.Episode)
                 {
-
+                    if (oldEpisode.Title == epidoseUpdate)
+                    {
+                        oldEpisode.Title = newEpidose.Title;
+                        oldEpisode.Runtime = newEpidose.Runtime;
+                        oldEpisode.EpisodeNumber = newEpidose.EpisodeNumber;
+                        oldEpisode.SeasonNumber = newEpidose.SeasonNumber;
+                        return true;
+                    }
                 }
-
-                return true;
             }
             return false;
         }
@@ -249,8 +254,47 @@ namespace _07_StreamingContent_Repository
                 return true;
             }
         }
-        //Delete Move
+        //Delete Movie
+        public bool DeleteExistingMovie(string MovieToDelete)
+        {
+            Movie movieToDelete = GetMoviebyTitle(MovieToDelete);
+
+            if(movieToDelete == null)
+            {
+                return false;
+            }
+            else
+            {
+                _contentDirectory.Remove(movieToDelete);
+                return true;
+            }
+        }
         //Delete Show
+        public bool DeleteExistingShow(string ShowToDelete)
+        {
+            Show showToDelete = GetShowByTitle(ShowToDelete);
+            if (showToDelete == null)
+                return false;
+            else
+            {
+                _contentDirectory.Remove(showToDelete);
+                return true;
+            }    
+        }
         //Delete Episode
+        public bool DeleteExistingEpisode(string showWithEpisode,string EpisodeTitle)
+        {
+            Show EpToDelete = GetShowByTitle(showWithEpisode);
+
+            foreach(Episode episode in EpToDelete.Episode)
+            {
+                if(episode.Title == EpisodeTitle)
+                {
+                    EpToDelete.Episode.Remove(episode);
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

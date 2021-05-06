@@ -270,7 +270,6 @@ namespace _07_StreamingContent_Console
             //add a list
             //List<StreamingContent> seedContent = new List<StreamingContent>();
             //seedContent.Add(future)
-
         }
     }
 }
