@@ -49,8 +49,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InterfaceChallenge\Vehicles.cs" />
+    <Compile Include="InterfaceChallenge\IVehicle.cs" />
     <Compile Include="RandomTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VehicleTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
