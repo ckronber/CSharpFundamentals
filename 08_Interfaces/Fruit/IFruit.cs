@@ -15,5 +15,6 @@ namespace _08_Interfaces.Fruit
         //Methods in interfaces
         //Can only set the return type, name and parameters
         string Peel();
+     
     }
 }
