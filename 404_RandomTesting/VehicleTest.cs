@@ -25,5 +25,12 @@ namespace _404_RandomTesting
             Console.WriteLine(mySedan.Drive());
             Console.ReadKey();
         }
+
+        [DataTestMethod]
+        [DataRow("Name")]
+        public void Greeter(string Name)
+        {
+            Console.WriteLine($"Howdy {Name}");
+        }
     }
 }
